@@ -1,0 +1,199 @@
+/* ─── Neubrutalism Budget Optimizer ─── */
+.budget-optimizer {
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.budget-card {
+    background: #ffffff;
+    border: var(--border-width) solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    padding: 40px 0 0;
+}
+
+.budget-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 0 40px;
+}
+
+.budget-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+}
+
+.budget-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: var(--border-width) solid var(--border-color);
+}
+
+/* ── Form Controls (Left) ── */
+.budget-controls {
+    padding: 40px;
+    background: var(--bg-tertiary);
+    border-right: var(--border-width) solid var(--border-color);
+}
+
+.range-group {
+    margin-bottom: 32px;
+}
+
+.range-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.range-header label {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin: 0;
+    color: #000;
+}
+
+.range-value {
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    font-weight: 900;
+    background: var(--accent-yellow);
+    border: var(--border-width) solid var(--border-color);
+    padding: 4px 12px;
+    box-shadow: 2px 2px 0 0 #000;
+}
+
+.radio-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 0;
+    background: #fff;
+    border: var(--border-width) solid var(--border-color);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.1s;
+    box-shadow: 2px 2px 0 0 #000;
+}
+
+.radio-label input {
+    display: none;
+}
+
+.radio-label:has(input:checked) {
+    background: var(--accent-blue);
+    color: #fff;
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 0 #000;
+}
+
+.radio-label:hover:not(:has(input:checked)) {
+    background: #fffbea;
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 0 #000;
+}
+
+/* ── Results (Right) ── */
+.budget-results {
+    padding: 40px;
+    background: #fff;
+}
+
+.total-estimate {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.total-estimate p {
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.total-estimate h3 {
+    font-size: 3.5rem;
+    color: var(--text-primary);
+    background: var(--accent-green);
+    display: inline-block;
+    padding: 4px 24px;
+    border: var(--border-width) solid var(--border-color);
+    box-shadow: 4px 4px 0 0 #000;
+    transform: rotate(-1deg);
+    margin: 0;
+}
+
+.breakdown {
+    background: var(--bg-primary);
+    border: var(--border-width) solid var(--border-color);
+    padding: 24px;
+    box-shadow: var(--shadow-base);
+}
+
+.breakdown h4 {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    padding-bottom: 12px;
+    border-bottom: var(--border-width) solid var(--border-color);
+}
+
+.breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    padding: 8px;
+}
+
+.breakdown-row:last-child {
+    margin-bottom: 0;
+}
+
+.breakdown-row:hover {
+    background: var(--accent-yellow);
+    box-shadow: 2px 2px 0 0 #000;
+    transform: translateX(4px);
+    transition: all 0.1s;
+}
+
+@media (max-width: 900px) {
+    .budget-content {
+        grid-template-columns: 1fr;
+    }
+
+    .budget-controls {
+        border-right: none;
+        border-bottom: var(--border-width) solid var(--border-color);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .budget-card,
+    .budget-controls,
+    .budget-results,
+    .budget-header {
+        padding: 24px 20px;
+    }
+
+    .radio-group {
+        grid-template-columns: 1fr;
+    }
+
+    .total-estimate h3 {
+        font-size: 2.2rem;
+    }
+}

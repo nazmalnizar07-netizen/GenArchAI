@@ -1,0 +1,106 @@
+/* ─── Circular Progress Overlay ─── */
+.cp-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    gap: 24px;
+}
+
+.cp-container {
+    position: relative;
+    width: 180px;
+    height: 180px;
+}
+
+/* Orbiting arrow ring */
+.cp-orbit-ring {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 210px;
+    height: 210px;
+    pointer-events: none;
+    animation: cp-orbit-pulse 3s ease-in-out infinite;
+}
+
+@keyframes cp-orbit-pulse {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Main circle SVG */
+.cp-circle {
+    width: 180px;
+    height: 180px;
+    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.08));
+}
+
+/* Percentage text centered in circle */
+.cp-pct {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #333;
+    letter-spacing: -1px;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Status message below circle */
+.cp-message {
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #555;
+    text-align: center;
+    margin: 0;
+    max-width: 320px;
+    line-height: 1.5;
+    animation: cp-msg-pulse 2s ease-in-out infinite;
+}
+
+@keyframes cp-msg-pulse {
+
+    0%,
+    100% {
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .cp-overlay {
+        background: rgba(17, 24, 39, 0.88);
+    }
+
+    .cp-pct {
+        color: #f0f0f0;
+    }
+
+    .cp-message {
+        color: #ccc;
+    }
+}

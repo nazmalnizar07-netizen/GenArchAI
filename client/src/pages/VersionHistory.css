@@ -1,0 +1,378 @@
+/* ─── Neubrutalism Version History ─── */
+.version-history {
+    min-height: 500px;
+}
+
+/* Controls */
+.vh-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.vh-filters {
+    display: flex;
+    gap: 12px;
+}
+
+.vh-filter {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    border: var(--border-width) solid var(--border-color);
+    padding: 8px 16px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 2px 2px 0 0 #000;
+    transition: all 0.1s;
+    color: var(--text-primary);
+}
+
+.vh-filter:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 0 #000;
+    background: #fffbea;
+}
+
+.vh-filter.active {
+    background: var(--accent-blue);
+    color: #fff;
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 0 #000;
+}
+
+/* Compare Mode */
+.vh-compare-bar {
+    background: var(--accent-yellow);
+    border: var(--border-width) solid var(--border-color);
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    box-shadow: var(--shadow-base);
+}
+
+.vh-compare-bar p {
+    margin: 0;
+    font-weight: 800;
+    font-size: 1.1rem;
+    font-family: var(--font-display);
+}
+
+.vh-comparison-card {
+    margin-bottom: 48px;
+    background: var(--bg-secondary);
+}
+
+.comparison-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-size: 1.25rem;
+    padding-bottom: 12px;
+    border-bottom: var(--border-width) solid var(--border-color);
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 24px;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.comparison-col h4 {
+    margin: 12px 0 4px;
+    font-size: 1.1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.comparison-col .comparison-cost {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--text-secondary);
+}
+
+.comparison-thumb {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border: var(--border-width) solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    background: #000;
+    display: block;
+}
+
+.comparison-vs {
+    background: #000;
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    font-weight: 900;
+    padding: 12px 8px;
+    border: var(--border-width) solid #000;
+    box-shadow: 4px 4px 0 0 var(--accent-yellow);
+    transform: rotate(-2deg);
+}
+
+.comparison-stats {
+    background: #fff;
+    border: var(--border-width) solid var(--border-color);
+    padding: 16px;
+    box-shadow: 4px 4px 0 0 #000;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dotted var(--border-color);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+}
+
+.stat-row:last-child {
+    border-bottom: none;
+    font-size: 1.1rem;
+    font-weight: 800;
+    padding-top: 16px;
+    margin-top: 8px;
+    border-top: var(--border-width) solid var(--border-color);
+}
+
+.stat-winner {
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.stat-value {
+    font-weight: 900;
+    color: var(--accent-green);
+}
+
+/* Timeline */
+.vh-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.vh-plan-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    font-family: var(--font-mono);
+    border-bottom: var(--border-width) solid var(--border-color);
+    padding-bottom: 12px;
+}
+
+.vh-plan-label {
+    background: var(--accent-blue);
+    color: #fff;
+    padding: 4px 12px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 0 0 #000;
+    border: var(--border-width) solid var(--border-color);
+}
+
+.vh-plan-date {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.vh-plan-count {
+    margin-left: auto;
+    font-weight: 600;
+    font-size: 0.8rem;
+    background: var(--bg-tertiary);
+    padding: 2px 8px;
+    border: var(--border-width) solid var(--border-color);
+}
+
+.vh-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    align-items: start;
+}
+
+.vh-card {
+    background: #fff;
+    border: var(--border-width) solid var(--border-color);
+    box-shadow: var(--shadow-base);
+    cursor: pointer;
+    transition: all 0.1s;
+    display: flex;
+    flex-direction: column;
+}
+
+.vh-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.vh-card.vh-selected {
+    border-color: var(--accent-blue);
+    box-shadow: 4px 4px 0 0 var(--accent-blue);
+    transform: translate(-2px, -2px);
+}
+
+.vh-card-image {
+    position: relative;
+    border-bottom: var(--border-width) solid var(--border-color);
+    background: #000;
+    overflow: hidden;
+}
+
+.vh-card-image img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.2s;
+}
+
+.vh-card:hover .vh-card-image img {
+    opacity: 0.9;
+}
+
+.vh-card-angle {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--accent-yellow);
+    border: var(--border-width) solid #000;
+    padding: 4px 8px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 0 0 #000;
+}
+
+.vh-fav-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: #fff;
+    border: var(--border-width) solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 2px 2px 0 0 #000;
+    color: #ccc;
+    padding: 0;
+    transition: all 0.1s;
+    z-index: 5;
+}
+
+.vh-fav-btn.active {
+    color: var(--accent-red);
+}
+
+.vh-fav-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 0 #000;
+}
+
+.vh-select-badge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 48px;
+    background: var(--bg-tertiary);
+    border: var(--border-width) solid var(--border-color);
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 900;
+    font-family: var(--font-display);
+    box-shadow: 4px 4px 0 0 #000;
+    opacity: 0.8;
+}
+
+.vh-select-badge.active {
+    background: var(--accent-blue);
+    color: #fff;
+    opacity: 1;
+}
+
+.vh-card-info {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vh-card-style {
+    font-weight: 900;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: var(--text-primary);
+}
+
+.vh-card-time {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.vh-empty {
+    padding: 60px 20px;
+    background: #fff;
+    border: var(--border-width) dashed var(--border-color);
+    text-align: center;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-top: 24px;
+}
+
+@media (max-width: 768px) {
+    .vh-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .vh-compare-bar {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+
+    .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .comparison-vs {
+        width: max-content;
+        margin: 0 auto;
+    }
+}

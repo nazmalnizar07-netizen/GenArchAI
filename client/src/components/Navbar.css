@@ -1,0 +1,239 @@
+/* ─── Neubrutalism Navbar ─── */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
+    z-index: 1000;
+    background: rgba(248, 248, 248, 0.85);
+    /* Matches off-white bg */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: var(--border-width) solid var(--border-color);
+    transition: all var(--transition-base);
+}
+
+.navbar-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+}
+
+/* Logo */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: transform var(--transition-fast);
+}
+
+.navbar-logo:hover {
+    transform: translate(-2px, -2px);
+}
+
+.logo-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--accent-blue);
+    border: var(--border-width) solid var(--border-color);
+    box-shadow: 2px 2px 0 0 #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-icon svg {
+    width: 60%;
+    height: 60%;
+    fill: #fff;
+    stroke: #fff;
+}
+
+.logo-text {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: -0.04em;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+.logo-ai {
+    color: var(--accent-blue);
+    margin-left: 2px;
+}
+
+/* Nav Links */
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-link {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    padding: 8px 12px;
+    border: var(--border-width) solid transparent;
+    transition: all 0.1s ease-in-out;
+    text-transform: uppercase;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-link:hover {
+    border-color: var(--border-color);
+    background: var(--accent-yellow);
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 0 #000;
+}
+
+.nav-link.active {
+    background: var(--accent-blue);
+    color: #fff;
+    border-color: var(--border-color);
+    box-shadow: 4px 4px 0 0 #000;
+    transform: translate(-2px, -2px);
+}
+
+/* Bracket styling from original, adapted to Neubrutalism */
+.nav-link .bracket {
+    color: var(--text-primary);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.nav-link.active .bracket {
+    color: #fff;
+}
+
+.nav-link:hover .bracket,
+.nav-link.active .bracket {
+    opacity: 1;
+}
+
+/* System Status Bubble */
+.system-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 800;
+    background: var(--accent-green);
+    border: var(--border-width) solid var(--border-color);
+    color: #000;
+    padding: 6px 14px;
+    margin-right: 16px;
+    box-shadow: var(--shadow-sm);
+    text-transform: uppercase;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    background: #000;
+    border-radius: 50%;
+    animation: none;
+    /* No soft glows in brutialism */
+}
+
+/* CTA */
+.navbar-cta {
+    display: flex;
+    align-items: center;
+}
+
+/* Mobile Toggle */
+.mobile-toggle {
+    display: none;
+    background: var(--accent-yellow);
+    border: var(--border-width) solid var(--border-color);
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 8px 12px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.1s ease-in-out;
+}
+
+.mobile-toggle:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: var(--shadow-base);
+}
+
+.mobile-toggle:active {
+    transform: translate(2px, 2px);
+    box-shadow: var(--shadow-active);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu {
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background: var(--bg-primary);
+    border-bottom: var(--border-width) solid var(--border-color);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 16px 0 0 rgba(0, 0, 0, 1);
+    /* dramatic drop */
+}
+
+.mobile-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 800;
+    border: var(--border-width) solid var(--border-color);
+    background: var(--bg-secondary);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.1s ease-in-out;
+    text-transform: uppercase;
+}
+
+.mobile-link:hover,
+.mobile-link.active {
+    background: var(--accent-yellow);
+    transform: translate(-2px, -2px);
+    box-shadow: var(--shadow-base);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+
+    .navbar-links,
+    .navbar-cta {
+        display: none;
+    }
+
+    .mobile-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .system-status {
+        margin-right: 8px;
+        padding: 4px 10px;
+        font-size: 0.75rem;
+    }
+}

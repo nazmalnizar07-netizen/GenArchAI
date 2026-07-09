@@ -1,0 +1,107 @@
+/* ─── Neubrutalism Loading Screen (Full Page) ─── */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loading-content {
+    background: #fff;
+    border: var(--border-width) solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.loading-icon-wrap {
+    font-size: 4rem;
+    margin-bottom: 32px;
+    animation: bounceHeavy 1s infinite alternate;
+}
+
+.loading-screen h2 {
+    font-size: 2rem;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+}
+
+.loading-progress-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 16px;
+    background: var(--bg-tertiary);
+    height: 16px;
+    border: var(--border-width) solid var(--border-color);
+    box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.loading-progress-bar {
+    height: 100%;
+    background: var(--accent-blue);
+    border-right: var(--border-width) solid var(--border-color);
+    transition: width 0.3s ease;
+}
+
+/* Repeating diagonal lines for brutalist loader */
+.loading-progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: repeating-linear-gradient(-45deg,
+            rgba(255, 255, 255, 0.2) 0px,
+            rgba(255, 255, 255, 0.2) 10px,
+            transparent 10px,
+            transparent 20px);
+    animation: slideLines 1s linear infinite;
+}
+
+.loading-status {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    background: var(--accent-yellow);
+    padding: 4px 12px;
+    border: var(--border-width) solid var(--border-color);
+    box-shadow: 2px 2px 0 0 #000;
+    display: inline-block;
+}
+
+@keyframes bounceHeavy {
+    0% {
+        transform: translateY(0);
+        filter: drop-shadow(4px 4px 0 #000);
+    }
+
+    100% {
+        transform: translateY(-10px);
+        filter: drop-shadow(10px 10px 0 #000);
+    }
+}
+
+@keyframes slideLines {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 28px 0;
+    }
+}

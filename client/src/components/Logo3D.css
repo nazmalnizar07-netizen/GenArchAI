@@ -1,0 +1,202 @@
+.logo-3d-container {
+    height: 32px;
+    width: 180px;
+    perspective: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+}
+
+.wireframe-drawing {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: rotateX(-15deg) rotateY(-25deg);
+}
+
+.block {
+    position: absolute;
+    transform-style: preserve-3d;
+}
+
+.side {
+    position: absolute;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Block 1: Left Small */
+.b1 {
+    width: 25px;
+    height: 15px;
+    bottom: 0;
+    left: 10px;
+}
+
+.b1 .side {
+    width: 100%;
+    height: 100%;
+}
+
+.b1 .front {
+    transform: translateZ(12.5px);
+}
+
+.b1 .back {
+    transform: rotateY(180deg) translateZ(12.5px);
+}
+
+.b1 .left {
+    width: 25px;
+    transform: rotateY(-90deg) translateZ(12.5px);
+}
+
+.b1 .right {
+    width: 25px;
+    transform: rotateY(90deg) translateZ(12.5px);
+}
+
+.b1 .top {
+    height: 25px;
+    transform: rotateX(90deg) translateZ(15px);
+    top: -15px;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* Block 2: Center Tall */
+.b2 {
+    width: 30px;
+    height: 35px;
+    bottom: 0;
+    left: 45px;
+}
+
+.b2 .side {
+    width: 100%;
+    height: 100%;
+}
+
+.b2 .front {
+    transform: translateZ(15px);
+    border-width: 1.5px;
+}
+
+.b2 .back {
+    transform: rotateY(180deg) translateZ(15px);
+}
+
+.b2 .left {
+    width: 30px;
+    transform: rotateY(-90deg) translateZ(15px);
+}
+
+.b2 .right {
+    width: 30px;
+    transform: rotateY(90deg) translateZ(15px);
+}
+
+.b2 .top {
+    height: 30px;
+    transform: rotateX(90deg) translateZ(35px);
+    top: -15px;
+    background: rgba(0, 0, 0, 0.05);
+    border-width: 1.5px;
+}
+
+/* Block 3: Right Long */
+.b3 {
+    width: 40px;
+    height: 12px;
+    bottom: 0;
+    left: 85px;
+}
+
+.b3 .side {
+    width: 100%;
+    height: 100%;
+}
+
+.b3 .front {
+    transform: translateZ(10px);
+}
+
+.b3 .back {
+    transform: rotateY(180deg) translateZ(10px);
+}
+
+.b3 .left {
+    width: 20px;
+    transform: rotateY(-90deg) translateZ(20px);
+}
+
+.b3 .right {
+    width: 20px;
+    transform: rotateY(90deg) translateZ(20px);
+}
+
+.b3 .top {
+    height: 20px;
+    transform: rotateX(90deg) translateZ(12px);
+    top: -10px;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* Technical markers */
+.tech-line-h {
+    position: absolute;
+    width: 120%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.2);
+    bottom: -10px;
+    left: -10%;
+}
+
+.tech-line-v {
+    position: absolute;
+    width: 1px;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.1);
+    left: 0;
+    bottom: -10px;
+}
+
+.tech-label-mini {
+    position: absolute;
+    font-size: 6px;
+    font-family: var(--font-mono);
+    color: #666;
+    bottom: -18px;
+    left: 0;
+    white-space: nowrap;
+    opacity: 0.8;
+}
+
+/* Loading Screen specific overrides */
+.loading-screen .logo-3d-container {
+    width: 600px;
+    height: 80px;
+    perspective: 1500px;
+    margin-bottom: 40px;
+}
+
+.loading-screen .wireframe-drawing {
+    transform: rotateX(-15deg) rotateY(0deg);
+    animation: panDrawing 12s infinite alternate ease-in-out;
+}
+
+@keyframes panDrawing {
+    from {
+        transform: rotateX(-10deg) rotateY(-15deg) scale(1.8);
+    }
+
+    to {
+        transform: rotateX(-10deg) rotateY(15deg) scale(1.8);
+    }
+}
+
+.loading-screen .side {
+    border-color: rgba(0, 0, 0, 1);
+    background: rgba(0, 0, 0, 0.02);
+}
